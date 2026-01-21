@@ -7,37 +7,37 @@ function Footer() {
             <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className='flex justify-center'>
                     <img
-                    src='/logo.svg' alt='Car Marketplace logo' width={200} height={200} />
+                    src='/car-logo-2.png' alt='Car Marketplace logo' width={300} height={200} />
                 </div>
 
-                <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
+                <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-700">
                     Car Marketplace is a one stop solution for all your car needs
                     Rent, Buy or Sell a car without any headache.
                 </p>
 
                 <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
                 <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> About </a>
+                    <a className="text-gray-800 transition hover:text-gray-700/75" href="#"> About </a>
                 </li>
 
                 <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Careers </a>
+                    <a className="text-gray-800 transition hover:text-gray-700/75" href="#"> Careers </a>
                 </li>
 
                 <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> History </a>
+                    <a className="text-gray-800 transition hover:text-gray-700/75" href="#"> History </a>
                 </li>
 
                 <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Services </a>
+                    <a className="text-gray-800 transition hover:text-gray-700/75" href="#"> Services </a>
                 </li>
 
                 <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Projects </a>
+                    <a className="text-gray-800 transition hover:text-gray-700/75" href="#"> Projects </a>
                 </li>
 
                 <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Blog </a>
+                    <a className="text-gray-800 transition hover:text-gray-700/75" href="#"> Blog </a>
                 </li>
                 </ul>
 
@@ -47,7 +47,7 @@ function Footer() {
                     href="#"
                     rel="noreferrer"
                     target="_blank"
-                    className="text-gray-700 transition hover:text-gray-700/75"
+                    className="text-gray-900 transition hover:text-gray-700/75"
                     >
                     <span className="sr-only">Facebook</span>
                     <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -65,7 +65,7 @@ function Footer() {
                     href="#"
                     rel="noreferrer"
                     target="_blank"
-                    className="text-gray-700 transition hover:text-gray-700/75"
+                    className="text-gray-900 transition hover:text-gray-700/75"
                     >
                     <span className="sr-only">Instagram</span>
                     <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -83,7 +83,7 @@ function Footer() {
                     href="#"
                     rel="noreferrer"
                     target="_blank"
-                    className="text-gray-700 transition hover:text-gray-700/75"
+                    className="text-gray-900 transition hover:text-gray-700/75"
                     >
                     <span className="sr-only">Twitter</span>
                     <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -99,7 +99,7 @@ function Footer() {
                     href="#"
                     rel="noreferrer"
                     target="_blank"
-                    className="text-gray-700 transition hover:text-gray-700/75"
+                    className="text-gray-900 transition hover:text-gray-700/75"
                     >
                     <span className="sr-only">GitHub</span>
                     <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -117,7 +117,7 @@ function Footer() {
                     href="#"
                     rel="noreferrer"
                     target="_blank"
-                    className="text-gray-700 transition hover:text-gray-700/75"
+                    className="text-gray-900 transition hover:text-gray-700/75"
                     >
                     <span className="sr-only">Dribbble</span>
                     <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

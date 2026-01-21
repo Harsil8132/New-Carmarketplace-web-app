@@ -1,7 +1,7 @@
 import { carImages, carListing } from '../schema/index'
 import {db} from '../../../dbconfigs/index'
 import { and, desc, eq, lt, lte, or } from 'drizzle-orm'
-import { deleteImageFromFirebase } from './firebaseServices'
+import { deleteImageFromCloudinary } from './cloudinaryServices'
 
 const formatResult = (resp) => {
     let result = []
@@ -53,12 +53,19 @@ export const getUserListing = async (userId) => {
 
 export const getAllListing = async () => {
     try {
-        return await db.select().from(carListing)
+        console.log("Fetching all listings...");
+        const result = await db.select().from(carListing)
                             .leftJoin(carImages, eq(carListing.id, carImages.carListingId))
                             .orderBy(desc(carListing.id))
-                            .then((res) => formatResult(res))
+                            .then((res) => {
+                                console.log("Raw database result:", res);
+                                return formatResult(res);
+                            });
+        console.log("Formatted result:", result);
+        return result;
     } catch (error) {
         console.log("ERROR :: getAllListing :", error);
+        throw error;
     }
 }
 
@@ -195,7 +202,7 @@ export const deleteImage = async (image) => {
     try {
         const result = await db.delete(carImages).where(eq(carImages.id, image.id)).returning({carImages})
         if(result){
-            deleteImageFromFirebase(image.imageUrl)
+            deleteImageFromCloudinary(image.imageUrl)
         }
     } catch (error) {
         console.log("ERROR :: deleteImage :", error);

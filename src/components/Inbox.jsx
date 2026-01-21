@@ -24,7 +24,7 @@ function Inbox() {
     <div>
     <div className='sm:p-10 rounded-xl'>
         <SendBirdProvider appId={conf.SENDBIRD_APP_ID}
-        userId={userID}
+        userId={'car-marketplace'}
         nickname={user?.fullName}
         profileUrl={user?.imageUrl}
         allowProfileEdit={true}

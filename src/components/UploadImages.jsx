@@ -1,4 +1,4 @@
-import { uploadImagestoFirebase } from '@/db/services/firebaseServices';
+import { uploadImagestoCloudinary } from '@/db/services/cloudinaryServices';
 import { deleteImage } from '@/db/services/sevices';
 import React, { useEffect, useState } from 'react'
 import { IoMdCloseCircle } from "react-icons/io";
@@ -21,23 +21,23 @@ function UploadImages({triggerUploadImages, setLoader, carData, mode}) {
     // console.log(imageList);
     // console.log(fileList);
 
-    useEffect(() => { 
-        if(triggerUploadImages){
-            setLoader(true)
-            uploadImagestoFirebase(fileList, triggerUploadImages, setLoader)
-            setLoader(false)
-            navigate('/profile')
+    useEffect(() => {
+        const upload = async () => {
+            if(triggerUploadImages){
+                setLoader(true)
+                await uploadImagestoCloudinary(fileList, triggerUploadImages, setLoader)
+                setLoader(false)
+                navigate('/profile')
+            }
         }
-        
+        upload()
+
     }, [triggerUploadImages])
 
     const onFileUpload = (e) => {
         const files = e.target.files
-
-        for(let i=0; i<files?.length; i++){
-            const file = files[i]
-            setFileList((prev) => ([...prev, file]))
-        }
+        const newFiles = Array.from(files)
+        setFileList((prev) => ([...prev, ...newFiles]))
     }
 
     const removeImage = (file) => {
@@ -58,9 +58,9 @@ function UploadImages({triggerUploadImages, setLoader, carData, mode}) {
         <h2 className='font-medium text-xl my-3'>Upload Car Images</h2>
         <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5'>
 
-            {mode==='edit' && 
+            {mode==='edit' &&
                 imageList?.map((image, index) => (
-                    <div key={index} className='broder border-dotted border-primary'>
+                    <div key={index} className='relative border border-dotted border-primary'>
                         <IoMdCloseCircle className='absolute m-2 text-white text-xl cursor-pointer' onClick={() => removeImagefromBD(image)}/>
                         <img src={image.imageUrl} className='w-full rounded-xl ' />
                     </div>
@@ -68,14 +68,14 @@ function UploadImages({triggerUploadImages, setLoader, carData, mode}) {
             }
 
             {fileList?.map((file, index) => (
-                <div key={index} className='broder border-dotted border-primary'>
+                <div key={index} className='relative border border-dotted border-primary'>
                     <IoMdCloseCircle className='absolute m-2 text-white text-xl cursor-pointer' onClick={() => removeImage(file)}/>
                     <img src={URL.createObjectURL(file)} className='w-full rounded-xl ' />
                 </div>
             ))}
 
             <label htmlFor='image-upload'>
-                <div className='broder rounded-xl border-dotted border-primary bg-blue-100 p-10 cursor-pointer hover:shadow-md '>
+                <div className='border rounded-xl border-dotted border-primary bg-blue-100 p-10 cursor-pointer hover:shadow-md '>
                     <h2 className='text-lg text-center text-primary'>+</h2>
                 </div>
             </label>

@@ -5,6 +5,7 @@ import { FaGasPump } from "react-icons/fa6";
 import { GiGearStickPattern } from "react-icons/gi";
 import { TbCar4Wd } from "react-icons/tb";
 import {
+    
     AlertDialog,
     AlertDialogAction,
     AlertDialogCancel,
@@ -16,7 +17,7 @@ import {
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
 import { Button } from '@/components/ui/button';
-import { LuClipboardEdit } from "react-icons/lu";
+import { LuClipboardPen } from "react-icons/lu";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { deleteListing } from '@/db/services/sevices';
 
@@ -36,7 +37,7 @@ function HeaderDetails({carDetails , user}) {
                 {carDetails?.createdBy === user?.primaryEmailAddress.emailAddress && 
                 <div className='grid gap-1 sm:flex sm:justify-between sm:gap-4 '>
                     <Link to={`/add-listing?mode=edit&id=${carDetails?.id}`}>
-                        <Button variant="outline" className="flex gap-2 text-lg bg-blue-100 hover:text-primary">Edit <LuClipboardEdit className='text-lg' /></Button>
+                        <Button variant="outline" className="flex gap-2 text-lg bg-blue-100 hover:text-primary">Edit <LuClipboardPen className='text-lg' /></Button>
                     </Link>
                     <AlertDialog>
                         <AlertDialogTrigger  className="border bg-red-700 text-white h-9 flex items-center justify-center gap-2 px-2 rounded-lg hover:bg-white hover:text-red-700 hover:border hover:border-red-700" >Delete <RiDeleteBin6Line className='text-lg' /></AlertDialogTrigger>
